@@ -40,16 +40,18 @@ Build a machine learning model that predicts student performance early so that t
 
 ## 🗂️ Project Structure
 
+```bash
 performance_prediction/
 │
-├── data_generation.py # Data loading & preparation
-├── data_preprocessing.py # Cleaning & feature engineering
-├── model_training.py # Model training & evaluation
-├── main.py # Main entry point
-├── student_performance.csv # Dataset
+├── data_generation.py        # Data loading & preparation
+├── data_preprocessing.py     # Cleaning & feature engineering
+├── model_training.py         # Model training & evaluation
+├── main.py                   # Main entry point
+├── student_performance.csv   # Dataset
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+
 
 
 ---
@@ -76,11 +78,14 @@ pip install -r requirements.txt
 # Run the project
 python main.py
 
+---
 
 📊 Output
 1. Model training results
 2. Performance metrics (accuracy, evaluation scores)
 3. Console-based prediction output
+
+---
 
 🌟 Key Highlights
 ✔ Modular and scalable code structure
@@ -88,10 +93,14 @@ python main.py
 ✔ Beginner-friendly yet industry-aligned design
 ✔ Easily extendable to a web app (Streamlit)
 
+---
+
 🔮 Future Enhancements
 1. Streamlit-based web interface
 2. Model optimization & hyperparameter tuning
 3. Advanced visualization dashboards
+
+---
 
 👤 Author
 Piyush Kumar

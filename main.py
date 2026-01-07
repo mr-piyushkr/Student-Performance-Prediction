@@ -1,40 +1,100 @@
-from data_preprocessing import DataPreprocessor
-from model_training import ModelTrainer
-import sys
-sys.path.append('.')
-from data_preprocessing import DataPreprocessor
+import streamlit as st
+import numpy as np
+import pickle
+import os
 
-def main():
-    # Step 1: Data Preprocessing
-    preprocessor = DataPreprocessor('student_performance.csv')
-    X_train, X_test, y_train, y_test, scaler = preprocessor.prepare_data()
-    
-    # Step 2: Model Training and Evaluation
-    trainer = ModelTrainer(X_train, X_test, y_train, y_test)
-    results = trainer.train_and_evaluate()
-    
-    # Print Results
-    print("Model Performance Results:")
-    for model, metrics in results.items():
-        print(f"\n{model}:")
-        for metric, value in metrics.items():
-            print(f"{metric}: {value}")
-    
-    # Plot Model Performance
-    trainer.plot_results()
-    
-    # Feature Importance
-    feature_names = [
-        'Previous Sem CGPA', 
-        'Attendance Percentage', 
-        'Extracurricular Activities', 
-        'Study Hours per Week', 
-        'Backlogs Previous Sem', 
-        'Internship Experience'
-    ]
-    feature_importance = trainer.feature_importance(feature_names)
-    print("\nFeature Importance:")
-    print(feature_importance)
+# ---------------- PAGE CONFIG ----------------
+st.set_page_config(
+    page_title="Student Performance Prediction",
+    page_icon="🎓",
+    layout="centered"
+)
 
-if __name__ == '__main__':
-    main()
+# ---------------- LOAD MODEL ----------------
+@st.cache_resource
+def load_model():
+    with open("model.pkl", "rb") as f:
+        model = pickle.load(f)
+    with open("scaler.pkl", "rb") as f:
+        scaler = pickle.load(f)
+    return model, scaler
+
+# Check if model files exist
+if not os.path.exists("model.pkl") or not os.path.exists("scaler.pkl"):
+    st.error("Model files not found. Please train the model first.")
+    st.stop()
+
+model, scaler = load_model()
+
+# ---------------- UI ----------------
+st.title("🎓 Student Performance Prediction")
+st.write(
+    "This application predicts **Next Semester CGPA** based on academic "
+    "and activity-related factors using a trained Machine Learning model."
+)
+
+st.divider()
+
+st.subheader("📥 Enter Student Details")
+
+previous_cgpa = st.slider(
+    "Previous Semester CGPA", 0.0, 10.0, 7.0, step=0.1
+)
+attendance = st.slider(
+    "Attendance Percentage (%)", 0, 100, 75
+)
+extracurricular = st.slider(
+    "Extracurricular Activities (hours/week)", 0, 10, 2
+)
+study_hours = st.slider(
+    "Study Hours per Week", 0, 60, 20
+)
+backlogs = st.selectbox(
+    "Number of Backlogs in Previous Semester", [0, 1, 2, 3]
+)
+internship = st.selectbox(
+    "Internship Experience", ["No", "Yes"]
+)
+
+# Convert internship to numeric
+internship_val = 1 if internship == "Yes" else 0
+
+st.divider()
+
+# ---------------- PREDICTION ----------------
+if st.button("🚀 Predict CGPA"):
+    input_data = np.array([[
+        previous_cgpa,
+        attendance,
+        extracurricular,
+        study_hours,
+        backlogs,
+        internship_val
+    ]])
+
+    input_scaled = scaler.transform(input_data)
+    prediction = model.predict(input_scaled)[0]
+
+    st.subheader("📊 Prediction Result")
+    st.metric(
+        label="Predicted Next Semester CGPA",
+        value=f"{prediction:.2f}"
+    )
+
+    if prediction >= 8:
+        st.success("🌟 Excellent performance expected")
+    elif prediction >= 6:
+        st.info("✅ Good performance expected")
+    elif prediction >= 4:
+        st.warning("⚠️ Average performance expected")
+    else:
+        st.error("❌ Performance needs improvement")
+
+    st.progress(min(int(prediction * 10), 100))
+
+st.divider()
+
+st.caption(
+    "⚙️ Model trained using multiple regression algorithms and selected "
+    "based on performance metrics. This tool is for academic demonstration purposes."
+)
