@@ -51,6 +51,7 @@ performance_prediction/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
+```
 
 
 
@@ -68,26 +69,30 @@ performance_prediction/
 
 ## ▶️ How to Run the Project
 
-```bash
 # Activate environment
+```
 conda activate ml_env
+```
 
 # Install dependencies
+```
 pip install -r requirements.txt
+```
 
 # Run the project
+```
 python main.py
-
+```
 ---
 
-📊 Output
+## 📊 Output
 1. Model training results
 2. Performance metrics (accuracy, evaluation scores)
 3. Console-based prediction output
 
 ---
 
-🌟 Key Highlights
+## 🌟 Key Highlights
 ✔ Modular and scalable code structure
 ✔ Clear separation of data, preprocessing, and training logic
 ✔ Beginner-friendly yet industry-aligned design
@@ -95,12 +100,17 @@ python main.py
 
 ---
 
-🔮 Future Enhancements
+## 🔮 Future Enhancements
 1. Streamlit-based web interface
 2. Model optimization & hyperparameter tuning
 3. Advanced visualization dashboards
 
 ---
 
-👤 Author
+## 📄 License
+This project is licensed under the MIT License.
+
+---
+
+## 👤 Author
 Piyush Kumar
