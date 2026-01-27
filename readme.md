@@ -6,6 +6,9 @@
   <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge"/>
 </p>
 
+🔗 GitHub Repo: [Link](https://github.com/mr-piyushkr/Student-Performance-Prediction.git)
+
+🌐 Live Demo: [Link](https://student-performance-prediction-4ccakps5rgj4jegsysns4f.streamlit.app/)
 ---
 
 ## 📌 Project Description
