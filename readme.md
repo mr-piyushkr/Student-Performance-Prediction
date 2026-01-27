@@ -6,9 +6,6 @@
   <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge"/>
 </p>
 
-🔗 GitHub Repo: [Link](https://github.com/mr-piyushkr/Student-Performance-Prediction.git)
-
-🌐 Live Demo: [Link](https://student-performance-prediction-4ccakps5rgj4jegsysns4f.streamlit.app/)
 ---
 
 ## 📌 Project Description
@@ -17,6 +14,10 @@ This project focuses on **predicting student academic performance** using a **ma
 The system analyzes historical student data and predicts performance outcomes based on multiple academic and behavioral factors.
 
 The project is designed with a **modular Python architecture**, making it easy to maintain, extend, and deploy.
+
+🔗 GitHub Repo: [Link](https://github.com/mr-piyushkr/Student-Performance-Prediction.git)
+
+🌐 Live Demo: [Link](https://student-performance-prediction-4ccakps5rgj4jegsysns4f.streamlit.app/)
 
 ---
 
