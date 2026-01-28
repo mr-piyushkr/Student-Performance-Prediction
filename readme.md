@@ -116,5 +116,20 @@ This project is licensed under the MIT License.
 
 ---
 
-## 👤 Author
-Piyush Kumar
+## 👨‍💻 Author
+
+**Piyush Kumar**  
+🚀 Machine Learning Developer 
+
+<h3 align="center">📬 Let's Connect</h3>
+
+<p align="center">
+  <a href="https://my-portfolio-umber-zeta-11.vercel.app/" target="_blank">🌐 Portfolio</a>
+  &nbsp;•&nbsp;
+  <a href="https://github.com/mr-piyushkr" target="_blank">💻 GitHub</a>
+  &nbsp;•&nbsp;
+  <a href="https://linkedin.com/in/piyushkumar06" target="_blank">💼 LinkedIn</a>
+  &nbsp;•&nbsp;
+  <a href="mailto:0602.piyushkumar@gmail.com">📧 Email</a>
+</p>
+
